@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment } from "react";
+import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// components
+import Employees from "./components/Dashboard/Employees";
+import LoginForm from "./components/LoginPages/LoginForm";
+import Registration from "./components/LoginPages/Registration";
+
+// History
+import history from "./history";
+import Page404 from "./components/Page404";
+
+// Page roots
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LoginForm  history={history} />,
+  },
+  {
+    path: "/signup",
+    element: <Registration history={history} />,
+  },
+  {
+    path: "/employees",
+    element: <Employees  history={history} />,
+  },
+  {
+    path: "/page-not-found",
+    element: <Page404 />,
+  }
+]);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <RouterProvider router={router} history={history} />
+    </Fragment>
   );
 }
 
