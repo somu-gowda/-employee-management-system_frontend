@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Row } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,7 +8,6 @@ import WebCookies from "../../Cookies/cookies";
 import Logo from "../../assets/logo.png";
 
 const NavBar = (props) => {
-
   const [loggedInUser, setLogined] = useState([]);
 
   // navigate hook
@@ -30,15 +29,15 @@ const NavBar = (props) => {
     <Navbar bg="danger" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/">
-            <img
-              src={Logo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="logo"
-            />{" "}
-            MyCLNQ Health
-          </Navbar.Brand>
+          <img
+            src={Logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+            alt="logo"
+          />{" "}
+          MyCLNQ Health
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto ">
@@ -50,22 +49,22 @@ const NavBar = (props) => {
           </Nav>
         </Navbar.Collapse>
         {loggedInUser ? (
-          <Nav className="me-auto">
-            <Nav.Link href="/employees">{loggedInUser.name}</Nav.Link>
-          </Nav>
+          <Navbar.Collapse className="justify-content-end">
+            <Nav>
+              <Nav.Link href="/employees">{loggedInUser.name}</Nav.Link>
+              <Button
+                style={{ float: "right", border: "1px solid white" }}
+                variant="ligth"
+                size="sm"
+                onClick={handleLogout}
+              >
+                Log out
+              </Button>
+            </Nav>
+          </Navbar.Collapse>
         ) : (
           ""
         )}
-        <Nav className="me-auto p-2 ">
-          <Button
-            style={{ float: "right", border: "1px solid white" }}
-            variant="ligth"
-            size="sm"
-            onClick={handleLogout}
-          >
-            Log out
-          </Button>
-        </Nav>
       </Container>
     </Navbar>
   );
