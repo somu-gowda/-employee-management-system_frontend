@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 import WebCookies from "../../Cookies/cookies";
+import Logo from "../../assets/logo.png";
 
 const NavBar = (props) => {
 
@@ -28,7 +29,16 @@ const NavBar = (props) => {
   return (
     <Navbar bg="danger" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand href="/">My CLNQ Health</Navbar.Brand>
+        <Navbar.Brand href="/">
+            <img
+              src={Logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="logo"
+            />{" "}
+            MyCLNQ Health
+          </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto ">
@@ -46,7 +56,7 @@ const NavBar = (props) => {
         ) : (
           ""
         )}
-        <Nav className="me-auto p-2">
+        <Nav className="me-auto p-2 ">
           <Button
             style={{ float: "right", border: "1px solid white" }}
             variant="ligth"

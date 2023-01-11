@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import EmployeeApi from "../../Service/employeeApi";
 import { useNavigate } from "react-router-dom";
 import WebCookies from "../../Cookies/cookies";
+import Logo from "../../assets/logo.png";
 
 const LoginForm = () => {
   let [state, setState] = useState({
@@ -30,8 +31,8 @@ const LoginForm = () => {
   // loggin uers the cookies
   const handleCookies = (data, callBack) => {
     let userData = data.data;
-    WebCookies.RemoveCookie('userin')
-    WebCookies.SetCookie("userin", JSON.stringify(userData))
+    WebCookies.RemoveCookie("userin");
+    WebCookies.SetCookie("userin", JSON.stringify(userData));
     callBack("");
   };
 
@@ -54,7 +55,13 @@ const LoginForm = () => {
   return (
     <Fragment>
       <div className="container mt-3">
-        <div className="row justify-content-md-center">
+        <div className="row bg-danger text-center text-white p-3">
+          <div className="col-lg-12 col-md-12">
+            <img src={Logo} alt="logo" width="35px" height="35px" />
+            <span className="m-3">Welcome to MyCLNQ Health</span>
+          </div>
+        </div>
+        <div className="row justify-content-md-center mt-5">
           <div className="col-md-8 col-sm-8 col-lg-5">
             <div className="card">
               <div className="card-header bg-danger text-white">

@@ -39,7 +39,7 @@ const AddEmployee = (props) => {
   return (
     <>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-danger text-white">
           <Modal.Title>Add Employee</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -149,7 +149,7 @@ const AddEmployee = (props) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={employee}>
+          <Button variant="danger" type="submit" onClick={employee}>
             Add
           </Button>
         </Modal.Footer>

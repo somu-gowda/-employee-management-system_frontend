@@ -53,7 +53,7 @@ const EditEmployee = (props) => {
   return (
     <>
       <Modal show={show} onHide={handleEditClose}>
-        <Modal.Header closeButton>
+        <Modal.Header closeButton className="bg-danger text-white">
           <Modal.Title>{loggedInUser.role !== "Employee" ? "Edit Employee" : "Edit Your Profile"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -174,7 +174,7 @@ const EditEmployee = (props) => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" type="submit" onClick={employee}>
+          <Button variant="danger" type="submit" onClick={employee}>
             Save
           </Button>
         </Modal.Footer>

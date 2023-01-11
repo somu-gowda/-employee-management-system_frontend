@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import EmployeeApi from "../../Service/employeeApi";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assets/logo.png";
 
 const Registration = (props) => {
   let [state, setState] = useState({
@@ -30,8 +31,8 @@ const Registration = (props) => {
       },
     }));
   };
-  
-  // Handle signup 
+
+  // Handle signup
   let formSubmit = (event) => {
     event.preventDefault();
     EmployeeApi.CreateEmployee(user, (data) => {
@@ -45,7 +46,13 @@ const Registration = (props) => {
   return (
     <Fragment>
       <div className="container mt-3">
-        <div className="row justify-content-md-center">
+        <div className="row bg-danger text-center text-white p-3">
+          <div className="col-lg-12 col-md-12">
+            <img src={Logo} alt="logo" width="35px" height="35px" />
+            <span className="m-3">Welcome to MyCLNQ Health</span>
+          </div>
+        </div>
+        <div className="row justify-content-md-center mt-5">
           <div className="col-md-8 col-sm-8 col-lg-5">
             <div className="card">
               <div className="card-header bg-danger text-white">
@@ -127,14 +134,13 @@ const Registration = (props) => {
                     >
                       Signup
                     </button>
-                    
                   </div>
                   <div className="d-flex mb-3 justify-content-center">
-                      <p>
-                        have an account?
-                        <a href="/"> Login</a>
-                      </p>
-                    </div>
+                    <p>
+                      have an account?
+                      <a href="/"> Login</a>
+                    </p>
+                  </div>
                 </form>
               </div>
             </div>

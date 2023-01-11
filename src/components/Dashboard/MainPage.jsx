@@ -94,14 +94,14 @@ const MainPage = (props) => {
     <Fragment>
       <Container className="justify-content-md-center">
         <Row className="justify-content-md-center mt-4 bg-info p-2">
-          <Col md={4} sm={4} className="text-dark">
+          <Col className="text-dark">
             {loggedInUser && loggedInUser.role !== "Employee" ? (
-              <h4>Employees</h4>
+              <span className="fw-bold">Employees</span>
             ) : (
-              <h4>Your Profile</h4>
+              <span>Your Profile</span>
             )}
-          </Col>
-          <Col>
+          {/* </Col> */}
+          {/* <Col> */}
             {loggedInUser && loggedInUser.role !== "Employee" ? (
               <Button
                 style={{ float: "right", border: "1px solid black" }}
